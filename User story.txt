@@ -1,0 +1,22 @@
+[Klient] : 
+
+Jako klient chcia³bym udokumentowaæ szkodê w hotelu, aby mog³a byæ rozpatrzona.
+
+Jako klient chcia³bym mieæ mo¿liwoœæ zg³oszenia opóŸnienia, aby nie traciæ czasu za który p³acê.
+
+Jako klient chcia³bym mieæ mo¿liwoœæ zg³oszenia kradzie¿y, aby odzyskaæ szkody materialne.
+
+Jako klient chcia³bym mieæ mo¿liwoœæ zg³oszenia zaginiêcia baga¿u, aby mieæ mo¿liwoœæ odnalezienia go bez ponoszenia dodatkowych kosztów.
+
+Jako klient chcia³bym miec mo¿liwoœæ zg³oszenia uszkodzenia baga¿u, ¿eby odzyskaæ wartoœæ mojego mienia.
+
+Jako klient chcia³bym mieæ mo¿liwoœc zg³oszenia odwo³ania podró¿y, aby w razie przypadku, gdy z niej zrezygnujê odzyskaæ czêœæ jej wartoœci. 
+
+Jako klient chcia³bym aby proces zg³aszania szkody przebieg³ szybko ¿eby nie uleg³o przedawnieniu oraz zbyt d³ugi okres czasowy nie wp³ywa³ na moj¹ niekorzyœæ. 
+
+===========================================================================================================
+===========================================================================================================
+
+[Pracownik] : 
+
+Jako pracownik chcia³bym mieæ wgl¹d do wszystkich szkód, aby móc je pozytywnie rozpatrzyæ. 
