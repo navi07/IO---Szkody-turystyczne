@@ -1,21 +1,29 @@
+
+
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+
 public class Polisa
 {
     private
     boolean status;
     String rodzaj;
-    int [] data_zawarcia = new int [8]; // zmienic zeby SQL obslugiwal
-    int [] data_rozwiazania = new int [8];
+    protected
 
-    Polisa(){}
-    Polisa(boolean status, String rodzaj, int [] data_zawarcia, int [] data_rozwiazania )
+    LocalDate data_zawarcia = LocalDate.of(2015, 01, 10);
+    LocalDate data_rozwiazania= LocalDate.of(2015, 01, 15);
+
+
+    //Polisa(){}
+    Polisa(boolean status, String rodzaj)
     {
         this.status = status;
         this.rodzaj = rodzaj;
-        this.data_zawarcia = data_zawarcia;
-        this.data_rozwiazania = data_rozwiazania;
+        //this.data_zawarcia = data_zawarcia;
+        //this.data_rozwiazania = data_rozwiazania;
     }
 
-    void edytuj(boolean status, String rodzaj, int [] data_zawarcia, int [] data_rozwiazania )
+    void edytuj(boolean status, String rodzaj, LocalDate data_zawarcia, LocalDate data_rozwiazania)
     {
         this.status = status;
         this.rodzaj = rodzaj;
@@ -33,7 +41,7 @@ public class Polisa
 
     void czas_trwania()
     {
-        // Dorobic obliczenia
-        //System.out.println("Czas trwania polisy: "+);
+        long days = ChronoUnit.DAYS.between(data_zawarcia, data_rozwiazania);
+        System.out.println("Czas trwania polisy: "+days+" dni");
     }
 }
