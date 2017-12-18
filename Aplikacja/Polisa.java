@@ -7,7 +7,10 @@ public class Polisa
     private String rodzaj;
     protected LocalDate data_zawarcia = LocalDate.of(2015, 01, 10);
     protected LocalDate data_rozwiazania= LocalDate.of(2015, 01, 15);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7db65012eaa5cc1f3bc2ac438bb4f1b1cf86c3d4
 
     Polisa()
     {

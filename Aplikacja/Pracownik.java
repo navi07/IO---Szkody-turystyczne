@@ -1,9 +1,19 @@
 public class Pracownik extends Osoba
 {
+<<<<<<< HEAD
     private int id_prac;
     private String nr_tel;
 
     Klient k;
+=======
+    private int id;
+    private String nr_tel;
+
+    Pracownik()
+    {
+        
+    };
+>>>>>>> 7db65012eaa5cc1f3bc2ac438bb4f1b1cf86c3d4
 
     Pracownik()
     {
