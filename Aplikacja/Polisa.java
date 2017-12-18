@@ -5,13 +5,10 @@ import java.time.temporal.ChronoUnit;
 
 public class Polisa
 {
-    private
-    boolean status;
-    String rodzaj;
-    protected
-
-    LocalDate data_zawarcia = LocalDate.of(2015, 01, 10);
-    LocalDate data_rozwiazania= LocalDate.of(2015, 01, 15);
+    private boolean status;
+    private String rodzaj;
+    protected LocalDate data_zawarcia = LocalDate.of(2015, 01, 10);
+    protected LocalDate data_rozwiazania= LocalDate.of(2015, 01, 15);
 
 
     //Polisa(){}

@@ -7,6 +7,12 @@ public class Main
 
         Polisa p1 = new Polisa(true,"ubezpieczniowa");
         p1.czas_trwania();
+        
+        Klient k1 = new Klient("Klient", "Testowy", "98040705678", 1);
+        Klient k2 = new Klient("Klient_2", "Testowy_2", "99040705678", 2);
+        
+        k1.pokaz_dane();
+        k2.pokaz_dane();
 
         if(o1 != null)
             System.out.println("Obiekt istnieje. Test wykonany pomyslnie ");

@@ -1,8 +1,7 @@
 public class Osoba
 {
-    protected
-    String imie;
-    String nazwisko;
+    protected String imie;
+    protected String nazwisko;
 
     void edytuj_dane(String imie, String nazwisko)
     {
@@ -10,7 +9,10 @@ public class Osoba
         this.nazwisko = nazwisko;
     }
 
-    Osoba(){}
+    Osoba()
+    {
+        
+    }
 
     Osoba(String imie, String nazwisko)
     {
