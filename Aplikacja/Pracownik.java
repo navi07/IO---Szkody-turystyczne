@@ -1,10 +1,12 @@
 public class Pracownik extends Osoba
 {
-    private
-    int id;
-    String nr_tel;
+    private int id;
+    private String nr_tel;
 
-    Pracownik(){};
+    Pracownik()
+    {
+        
+    };
 
     void sprawdz_tozsamosc(){}; // uzupelnic
     void odrzuc_zgloszenie(){};

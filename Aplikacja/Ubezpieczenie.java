@@ -1,10 +1,12 @@
 public class Ubezpieczenie
 {
-    private
-    String typ;
-
-    Ubezpieczenie(){}
-
+    private   String typ;
+  
+    Ubezpieczenie()
+    {
+        
+    }
+    
     Ubezpieczenie(String typ)
     {
         this.typ = typ;
