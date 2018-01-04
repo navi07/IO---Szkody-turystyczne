@@ -1,3 +1,7 @@
+package projektIO;
+
+import java.sql.*;
+
 public class Klient extends Osoba
 {
     private String pesel;
@@ -16,8 +20,16 @@ public class Klient extends Osoba
         id = count;
     }
     
-    void pokaz_dane()
+    void pokaz_dane() throws SQLException
     {
+    	 DBConnect connect =new DBConnect();
+    	 ResultSet rs = connect.getData("select * from klienci");
+			while(rs.next()){
+				String name= rs.getString("imie");
+				String last_name = rs.getString("nazwisko");
+				System.out.println(name+" "+last_name);
+				
+			}
         System.out.println(imie+" "+nazwisko+" "+pesel+" "+nr_ubezpieczenia+" "+id);
     }
     

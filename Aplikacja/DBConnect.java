@@ -3,9 +3,9 @@ package projektIO;
 import java.sql.*;
 
 public class DBConnect {
-	private Connection con;
-	private Statement st;
-	private ResultSet rs;
+	protected Connection con;
+	protected Statement st;
+	protected ResultSet rs;
 
 	public DBConnect(){
 		try{
@@ -17,17 +17,16 @@ public class DBConnect {
 		}
 	}
 	
-	public void getData(){
+	public ResultSet getData(String query){
 		try{
-			String query = "select * from klienci";
+			//String query = "select * from klienci";
 			rs =st.executeQuery(query);
-			while(rs.next()){
-				String name= rs.getString("imie");
-				String last_name = rs.getString("nazwisko");
-				System.out.println(name+" nazwisko "+last_name);
-			}
+	
+			
 		}catch(Exception ex){
 						System.out.println(ex);
-		}	
+						
+		}
+		return rs;
 	}
 }
