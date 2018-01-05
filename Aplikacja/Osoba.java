@@ -1,4 +1,4 @@
-public class Osoba
+public class Osoba extends DBConnect
 {
     protected String imie = "Imie";
     protected String nazwisko = "Nazwisko";

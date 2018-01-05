@@ -1,3 +1,5 @@
+import java.sql.SQLException;
+
 public class Pracownik extends Osoba
 {
     private int id_prac;
@@ -16,8 +18,7 @@ public class Pracownik extends Osoba
         this.nr_tel = nr_tel;
     }
 
-    void sprawdz_tozsamosc()
-    {
+    void sprawdz_tozsamosc() throws SQLException {
         k.pokaz_dane();
         // Sprawdzanie z baza danych
     }
