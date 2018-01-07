@@ -1,15 +1,16 @@
-import java.sql.*;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class Klient extends Osoba
 {
     private String pesel;
-    private int nr_tel;
     private int nr_ubezpieczenia;
+    private int nr_tel;
     private Zgloszenie z;
     private Polisa p;
     int id;
     private static int count;
-    
+
     public Klient(String imie, String nazwisko, String pesel, int nr_ubezpieczenia, int nr_tel)
     {
         super(imie, nazwisko);
@@ -19,33 +20,39 @@ public class Klient extends Osoba
         count++;
         id = count;
     }
-    
+
     void pokaz_dane() throws SQLException
     {
-    	 DBConnect connect =new DBConnect();
-         try (ResultSet rs = connect.getData("select * from klienci"))
-         {
-            while (rs.next())
+        DBConnect connect =new DBConnect();
+        ResultSet rs = connect.getData("select * from klienci");
+        while(rs.next()){
+            if(id == rs.getInt("ID"))
             {
-                imie = rs.getString("imie");
-                nazwisko = rs.getString("nazwisko");
-                pesel = rs.getString("pesel");
-                nr_tel = rs.getInt("numer_telefonu");
+                int ID=rs.getInt("ID");
+                String imie= rs.getString("imie");
+                String nazwisko = rs.getString("nazwisko");
+                String adres_zamieszkania = rs.getString("adres_zamieszkania");
+                int kod_pocztowy = rs.getInt("kod_pocztowy");
+                String email = rs.getString("email");
+                String numer_telefonu = rs.getString("numer_telefonu");
+                String pesel = rs.getString("pesel");
+                String seria_dowodu = rs.getString("seria_dowodu");
+                System.out.println(imie+" "+nazwisko+" "+pesel+" ID= "+ID);
             }
         }
-        System.out.println(imie+" "+nazwisko+" "+pesel+" "+nr_ubezpieczenia+" "+nr_tel+" "+id);
     }
-    
-    void zglos_szkode()
+
+    public void zglos_szkode()
     {
-        
-    } // uzupelnic
-    
+        new Zgloszenie();
+    }
+
+
     void sprawdz_status_zgloszenia()
     {
-       z.sprawdz_status();
+        z.sprawdz_status();
     }
-    
+
     void sprawdz_czas_trwania_polisy()
     {
         p.czas_trwania();

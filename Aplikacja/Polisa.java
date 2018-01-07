@@ -1,5 +1,6 @@
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
+import java.util.Date;
 
 public class Polisa
 {
@@ -7,12 +8,9 @@ public class Polisa
     private String rodzaj;
     protected LocalDate data_zawarcia = LocalDate.of(2015, 01, 10);
     protected LocalDate data_rozwiazania= LocalDate.of(2015, 01, 15);
+    protected int id;
 
-
-    Polisa()
-    {
-
-    }
+    Polisa() { }
 
     Polisa(boolean status, String rodzaj, int r_z, int m_z, int d_z, int r_r, int m_r, int d_r)
     {
