@@ -36,19 +36,15 @@ public class Zgloszenie extends DBConnect
         data = LocalDate.of(r_z, m_z, d_z);
 
         java.sql.Date data_sql = java.sql.Date.valueOf( data );
-
-            //Statement stmt = con.createStatement();
-            //stmt.executeUpdate("INSERT INTO zgloszenie_szkody_turystycznej(data, opis, status, oplata_polisy, Polisa_turystyczna_id) VALUES (data_sql, opis, status, oplata, id_polisy )");
-
+        
             PreparedStatement prepStmt = con.prepareStatement(
-                    "insert into zgloszenie_szkody_turystycznej values(?,?,?,?,?,?);");
+                    "insert into zgloszenie_szkody_turystycznej values(NULL,?,?,?,?,?);");
 
-            prepStmt.setInt(1, 1); // ID !?!?!?!
-            prepStmt.setDate(2, data_sql);
-            prepStmt.setString(3, opis);
-            prepStmt.setInt(4,(status) ? 1 : 0);
-            prepStmt.setDouble(5, oplata);
-            prepStmt.setInt(6, id_polisy);
+            prepStmt.setDate(1, data_sql);
+            prepStmt.setString(2, opis);
+            prepStmt.setInt(3,(status) ? 1 : 0);
+            prepStmt.setDouble(4, oplata);
+            prepStmt.setInt(5, id_polisy);
             prepStmt.executeUpdate();
         }
 
