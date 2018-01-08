@@ -42,8 +42,7 @@ public class Klient extends Osoba
         }
     }
 
-    public void zglos_szkode()
-    {
+    public void zglos_szkode() throws SQLException {
         new Zgloszenie();
     }
 

@@ -1,5 +1,6 @@
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.Scanner;
 
@@ -13,8 +14,7 @@ public class Zgloszenie extends DBConnect
     private int id_polisy;
     int id;
 
-    Zgloszenie()
-    {
+    Zgloszenie() throws SQLException {
         status = true;
         count++;
         id = count;
@@ -37,19 +37,21 @@ public class Zgloszenie extends DBConnect
 
         java.sql.Date data_sql = java.sql.Date.valueOf( data );
 
-        try {
-            PreparedStatement prepStmt = con.prepareStatement(
-                    "insert into zgloszenie_szkody_turystycznej values(NULL,?,?,?,?);");
+            //Statement stmt = con.createStatement();
+            //stmt.executeUpdate("INSERT INTO zgloszenie_szkody_turystycznej(data, opis, status, oplata_polisy, Polisa_turystyczna_id) VALUES (data_sql, opis, status, oplata, id_polisy )");
 
-            prepStmt.setDate(1, data_sql);
-            prepStmt.setString(2, opis);
-            prepStmt.setInt(3,(status) ? 1 : 0);
-            prepStmt.setDouble(4, oplata);
-            prepStmt.execute();
-        } catch (SQLException e) {
-            System.err.println("Blad przy probie zgloszenia szkody");
+            PreparedStatement prepStmt = con.prepareStatement(
+                    "insert into zgloszenie_szkody_turystycznej values(?,?,?,?,?,?);");
+
+            prepStmt.setInt(1, 1); // ID !?!?!?!
+            prepStmt.setDate(2, data_sql);
+            prepStmt.setString(3, opis);
+            prepStmt.setInt(4,(status) ? 1 : 0);
+            prepStmt.setDouble(5, oplata);
+            prepStmt.setInt(6, id_polisy);
+            prepStmt.executeUpdate();
         }
-    }
+
 
 
     void edytuj(String rodzaj, boolean status, int id)
