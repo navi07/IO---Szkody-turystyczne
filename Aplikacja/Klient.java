@@ -6,13 +6,12 @@ public class Klient extends Osoba
     private String pesel;
     private int nr_ubezpieczenia;
     private int nr_tel;
-    private Zgloszenie z;
+    private Zgloszenie z = new Zgloszenie();
     private Polisa p;
     int id;
     private static int count;
 
-    public Klient(String imie, String nazwisko, String pesel, int nr_ubezpieczenia, int nr_tel)
-    {
+    public Klient(String imie, String nazwisko, String pesel, int nr_ubezpieczenia, int nr_tel) throws SQLException {
         super(imie, nazwisko);
         this.pesel = pesel;
         this.nr_ubezpieczenia = nr_ubezpieczenia;
@@ -43,9 +42,10 @@ public class Klient extends Osoba
     }
 
     public void zglos_szkode() throws SQLException {
-        new Zgloszenie();
+        z.utworz();
     }
 
+    void edytuj_zgloszenie() throws SQLException {z.edytuj();}
 
     void sprawdz_status_zgloszenia()
     {
