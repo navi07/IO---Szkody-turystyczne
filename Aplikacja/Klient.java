@@ -11,7 +11,8 @@ public class Klient extends Osoba
     int id;
     private static int count;
 
-    public Klient(String imie, String nazwisko, String pesel, int nr_ubezpieczenia, int nr_tel) throws SQLException {
+    public Klient(String imie, String nazwisko, String pesel, int nr_ubezpieczenia, int nr_tel) throws SQLException
+    {
         super(imie, nazwisko);
         this.pesel = pesel;
         this.nr_ubezpieczenia = nr_ubezpieczenia;
@@ -36,26 +37,19 @@ public class Klient extends Osoba
                 String numer_telefonu = rs.getString("numer_telefonu");
                 String pesel = rs.getString("pesel");
                 String seria_dowodu = rs.getString("seria_dowodu");
-                System.out.println(imie+" "+nazwisko+" "+pesel+" ID= "+ID);
+                System.out.println(imie+" "+nazwisko+" "+pesel+" ID = "+ID);
             }
         }
     }
 
-    public void zglos_szkode() throws SQLException {
-        z.utworz();
-    }
-
+    public void zglos_szkode() throws SQLException { z.utworz(); }
     void edytuj_zgloszenie() throws SQLException {z.edytuj();}
-
     void sprawdz_status_zgloszenia()
     {
         z.sprawdz_status();
     }
-
     void sprawdz_czas_trwania_polisy()
     {
         p.czas_trwania();
     }
 }
-
-

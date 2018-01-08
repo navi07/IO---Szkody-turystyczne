@@ -2,10 +2,7 @@ public class Ubezpieczenie
 {
     private   String typ;
   
-    Ubezpieczenie()
-    {
-        
-    }
+    Ubezpieczenie() {}
     
     Ubezpieczenie(String typ)
     {

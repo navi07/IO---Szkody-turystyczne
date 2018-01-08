@@ -16,7 +16,8 @@ public class Zgloszenie extends DBConnect
 
     Zgloszenie() {};
 
-    void utworz() throws SQLException {
+    void utworz() throws SQLException
+    {
         status = true;
         count++;
         id = count;
@@ -36,7 +37,6 @@ public class Zgloszenie extends DBConnect
         System.out.println("Rok : ");
         int r_z = odczyt.nextInt();
         data = LocalDate.of(r_z, m_z, d_z);
-
         java.sql.Date data_sql = java.sql.Date.valueOf( data );
 
         PreparedStatement prepStmt = con.prepareStatement(
@@ -50,7 +50,8 @@ public class Zgloszenie extends DBConnect
         prepStmt.executeUpdate();
     }
 
-    void edytuj() throws SQLException {
+    void edytuj() throws SQLException
+    {
         Scanner odczyt = new Scanner(System.in);
         System.out.println("Edycja zgloszenia\n Podaj id zgloszenia :");
         System.out.println("ID : ");
@@ -69,7 +70,6 @@ public class Zgloszenie extends DBConnect
         System.out.println("Rok : ");
         int r_z = odczyt.nextInt();
         data = LocalDate.of(r_z, m_z, d_z);
-
         java.sql.Date data_sql = java.sql.Date.valueOf( data );
 
         PreparedStatement prepStmt = con.prepareStatement(
@@ -88,7 +88,6 @@ public class Zgloszenie extends DBConnect
             System.out.println("Zgloszenie istnieje");
         else
             System.out.println("Zgloszenie nie istnieje");
-        
     }
 }
 

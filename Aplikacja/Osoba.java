@@ -9,7 +9,7 @@ public class Osoba extends DBConnect
         this.nazwisko = nazwisko;
     }
 
-    Osoba(){ }
+    Osoba(){}
 
     Osoba(String imie, String nazwisko)
     {
