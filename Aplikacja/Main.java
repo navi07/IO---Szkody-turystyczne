@@ -11,8 +11,11 @@ public class Main
         Osoba o1 = new Osoba("Tester","Testowy");
         Klient k1 = new Klient("Klient", "Testowy", "98040705678", 1, 000000000);
         Pracownik prac1 = new Pracownik();
+        Zgloszenie z1 = new Zgloszenie();
+        Ubezpieczenie u1 = new Ubezpieczenie();
 
-       do {
+       do
+       {
            System.out.println("Wybierz czynność : ");
            System.out.println("1. Zgloś szkodę jako klient");
            System.out.println("2. Edytuj zgłoszenie jako klient");
@@ -21,10 +24,16 @@ public class Main
            System.out.println("5. Wyświetl dane osoby");
            System.out.println("6. Zgloś szkodę jako klient");
            System.out.println("7. Odrzuć zgłoszenie");
-           System.out.println("8. Wykonaj test (Czy osoba istnieje ?)");
+           System.out.println("8. Wykonaj test klasy Osoba");
+           System.out.println("9. Wykonaj test klasy Klient");
+           System.out.println("10. Wykonaj test klasy Polisa");
+           System.out.println("11. Wykonaj test klasy Pracownik");
+           System.out.println("12. Wykonaj test klasy Zgloszenie");
+           System.out.println("13. Wykonaj test klasy Ubezpieczenie");
            System.out.println("Wybierz czynność : ");
            x = odczyt.nextInt();
-           switch (x) {
+           switch (x)
+           {
                case 1:
                    k1.zglos_szkode();
                    break;
@@ -48,6 +57,36 @@ public class Main
                    break;
                case 8:
                    if (o1 != null)
+                       System.out.println("Obiekt istnieje. Test wykonany pomyslnie ");
+                   else
+                       System.out.println("Obiekt nie istnieje. Test wykonany negatywnie ");
+                   break;
+               case 9:
+                   if (k1 != null)
+                       System.out.println("Obiekt istnieje. Test wykonany pomyslnie ");
+                   else
+                       System.out.println("Obiekt nie istnieje. Test wykonany negatywnie ");
+                   break;
+               case 10:
+                   if (p1 != null)
+                       System.out.println("Obiekt istnieje. Test wykonany pomyslnie ");
+                   else
+                       System.out.println("Obiekt nie istnieje. Test wykonany negatywnie ");
+                   break;
+               case 11:
+                   if (prac1 != null)
+                       System.out.println("Obiekt istnieje. Test wykonany pomyslnie ");
+                   else
+                       System.out.println("Obiekt nie istnieje. Test wykonany negatywnie ");
+                   break;
+               case 12:
+                   if (z1 != null)
+                       System.out.println("Obiekt istnieje. Test wykonany pomyslnie ");
+                   else
+                       System.out.println("Obiekt nie istnieje. Test wykonany negatywnie ");
+                   break;
+               case 13:
+                   if (u1 != null)
                        System.out.println("Obiekt istnieje. Test wykonany pomyslnie ");
                    else
                        System.out.println("Obiekt nie istnieje. Test wykonany negatywnie ");
