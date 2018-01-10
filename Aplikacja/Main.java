@@ -1,9 +1,13 @@
+import javafx.application.Application;
+import javafx.stage.Stage;
+
 import java.sql.SQLException;
 import java.util.Scanner;
 
-public class Main
+public class Main extends Application
 {
     public static void main(String[] args) throws SQLException {
+        /*
         Scanner odczyt = new Scanner(System.in);
         int x;
 
@@ -93,6 +97,15 @@ public class Main
                    break;
            }
        } while(x != 0);
+       */
+        launch(args);
+    }
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        primaryStage.setTitle("Gowno");
+        View view=new View(primaryStage);
+        view.init();
     }
 }
 

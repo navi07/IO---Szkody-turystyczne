@@ -11,6 +11,11 @@ public class Klient extends Osoba
     int id;
     private static int count;
 
+    public Klient()throws SQLException {
+        count++;
+        id = count;
+    }
+
     public Klient(String imie, String nazwisko, String pesel, int nr_ubezpieczenia, int nr_tel) throws SQLException
     {
         super(imie, nazwisko);
@@ -23,6 +28,7 @@ public class Klient extends Osoba
 
     void pokaz_dane() throws SQLException
     {
+
         DBConnect connect =new DBConnect();
         ResultSet rs = connect.getData("select * from klienci");
         while(rs.next()){
@@ -38,6 +44,7 @@ public class Klient extends Osoba
                 String pesel = rs.getString("pesel");
                 String seria_dowodu = rs.getString("seria_dowodu");
                 System.out.println(imie+" "+nazwisko+" "+pesel+" ID = "+ID);
+
             }
         }
     }

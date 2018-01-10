@@ -5,14 +5,13 @@ import java.util.Scanner;
 public class Pracownik extends Osoba
 {
     private Zgloszenie z = new Zgloszenie();
-    protected Klient k;
+    private Klient k = new Klient();
     private int id_prac;
     private String nr_tel;
 
-    Pracownik() {};
+    Pracownik() throws SQLException {};
 
-    Pracownik(String imie, String nazwisko, String nr_tel)
-    {
+    Pracownik(String imie, String nazwisko, String nr_tel) throws SQLException {
         super(imie, nazwisko);
         this.nr_tel = nr_tel;
     }

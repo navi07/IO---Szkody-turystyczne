@@ -18,7 +18,7 @@ public class Zgloszenie extends DBConnect
 
     void utworz() throws SQLException
     {
-        status = true;
+        status = false;
         count++;
         id = count;
         Scanner odczyt = new Scanner(System.in);
