@@ -29,7 +29,7 @@ public class Polisa
         this.data_rozwiazania = data_rozwiazania;
     }
 
-    void sprawdz()
+    void sprawdz_status()
     {
         if(status)
             System.out.println("Application.Polisa jest aktualna");

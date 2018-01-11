@@ -3,15 +3,24 @@ package Application;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import Application.Controler.WorkerGuiControler;
+
 public class Klient extends Osoba
 {
     private String pesel;
+    private String seria_dowodu;
+    private String adres_zamieszkania;
+    private String email;
+    private String numer_telefonu;
+    private int kod_pocztowy;
     private int nr_ubezpieczenia;
     private int nr_tel;
-    private Zgloszenie z = new Zgloszenie();
-    private Polisa p;
-    int id;
+
+    private Zgloszenie zgloszenie = new Zgloszenie();
+    private Polisa polisa;
+
     private static int count;
+    int id;
 
     Klient()throws SQLException
     {
@@ -29,37 +38,38 @@ public class Klient extends Osoba
         id = count;
     }
 
-    String pokaz_dane() throws SQLException
+    String pokaz_dane(int id) throws SQLException
     {
         String tmp = new String();
         DBConnect connect =new DBConnect();
         ResultSet rs = connect.getData("select * from klienci");
+
         while(rs.next()){
             if(id == rs.getInt("ID"))
             {
-                int ID=rs.getInt("ID");
-                String imie= rs.getString("imie");
-                String nazwisko = rs.getString("nazwisko");
-                String adres_zamieszkania = rs.getString("adres_zamieszkania");
-                int kod_pocztowy = rs.getInt("kod_pocztowy");
-                String email = rs.getString("email");
-                String numer_telefonu = rs.getString("numer_telefonu");
-                String pesel = rs.getString("pesel");
-                String seria_dowodu = rs.getString("seria_dowodu");
+                int ID = rs.getInt("ID");
+                imie = rs.getString("imie");
+                nazwisko = rs.getString("nazwisko");
+                adres_zamieszkania = rs.getString("adres_zamieszkania");
+                kod_pocztowy = rs.getInt("kod_pocztowy");
+                email = rs.getString(   "email");
+                numer_telefonu = rs.getString("numer_telefonu");
+                pesel = rs.getString("pesel");
+                seria_dowodu = rs.getString("seria_dowodu");
                 tmp = new String(imie+" "+nazwisko+" "+pesel+" ID = "+ID+'\n'+tmp);
             }
         }
         return tmp;
     }
 
-    public void zglos_szkode() throws SQLException { z.utworz(); }
-    void edytuj_zgloszenie() throws SQLException {z.edytuj();}
+    public void zglos_szkode() throws SQLException { zgloszenie.utworz(); }
+    void edytuj_zgloszenie() throws SQLException { zgloszenie.edytuj();}
     void sprawdz_status_zgloszenia()
     {
-        z.sprawdz_status();
+        zgloszenie.sprawdz_status();
     }
     void sprawdz_czas_trwania_polisy()
     {
-        p.czas_trwania();
+        polisa.czas_trwania();
     }
 }

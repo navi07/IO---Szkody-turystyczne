@@ -2,16 +2,14 @@ package Application;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.Scanner;
 
 public class Pracownik extends Osoba
 {
     private Zgloszenie zgloszenie = new Zgloszenie();
     private Klient klient = new Klient();
     private String nr_tel;
-    private int id_prac;
 
-    public Pracownik() throws SQLException {};
+    public Pracownik() throws SQLException {}
 
     public Pracownik(String imie, String nazwisko, String nr_tel) throws SQLException
     {
@@ -19,18 +17,13 @@ public class Pracownik extends Osoba
         this.nr_tel = nr_tel;
     }
 
-    public String sprawdz_tozsamosc() throws SQLException { return klient.pokaz_dane(); }
+    public String sprawdz_tozsamosc(int id) throws SQLException { return klient.pokaz_dane(id); }
 
-    public void odrzuc_zgloszenie() throws SQLException
+    public void odrzuc_zgloszenie(int id) throws SQLException
     {
-        Scanner odczyt = new Scanner(System.in);
-        System.out.println("Usuwanie zgloszenia\n Podaj id zgloszenia :");
-        System.out.println("ID : ");
-        int id_wpr = odczyt.nextInt();
-
         PreparedStatement prepStmt = con.prepareStatement(
                 "DELETE FROM zgloszenie_szkody_turystycznej WHERE id = ?");
-        prepStmt.setInt(1, id_wpr);
+        prepStmt.setInt(1, id);
         prepStmt.executeUpdate();
     }
     public void przyjmij_zgloszenie()
