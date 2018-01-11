@@ -1,3 +1,5 @@
+package Aplication;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -11,7 +13,8 @@ public class Klient extends Osoba
     int id;
     private static int count;
 
-    public Klient()throws SQLException {
+    Klient()throws SQLException
+    {
         count++;
         id = count;
     }
@@ -26,9 +29,9 @@ public class Klient extends Osoba
         id = count;
     }
 
-    void pokaz_dane() throws SQLException
+    String pokaz_dane() throws SQLException
     {
-
+        String tmp = new String();
         DBConnect connect =new DBConnect();
         ResultSet rs = connect.getData("select * from klienci");
         while(rs.next()){
@@ -43,10 +46,10 @@ public class Klient extends Osoba
                 String numer_telefonu = rs.getString("numer_telefonu");
                 String pesel = rs.getString("pesel");
                 String seria_dowodu = rs.getString("seria_dowodu");
-                System.out.println(imie+" "+nazwisko+" "+pesel+" ID = "+ID);
-
+                tmp = new String(imie+" "+nazwisko+" "+pesel+" ID = "+ID+'\n'+tmp);
             }
         }
+        return tmp;
     }
 
     public void zglos_szkode() throws SQLException { z.utworz(); }

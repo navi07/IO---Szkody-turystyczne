@@ -1,6 +1,7 @@
+package Aplication;
+
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.Scanner;
 
@@ -14,7 +15,7 @@ public class Zgloszenie extends DBConnect
     private int id_polisy;
     int id;
 
-    Zgloszenie() {};
+    public Zgloszenie() {};
 
     void utworz() throws SQLException
     {
@@ -85,9 +86,9 @@ public class Zgloszenie extends DBConnect
      void sprawdz_status()
     {
         if (status != false)
-            System.out.println("Zgloszenie istnieje");
+            System.out.println("Aplication.Zgloszenie istnieje");
         else
-            System.out.println("Zgloszenie nie istnieje");
+            System.out.println("Aplication.Zgloszenie nie istnieje");
     }
 }
 

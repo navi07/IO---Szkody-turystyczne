@@ -1,24 +1,27 @@
+package Aplication;
+
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Scanner;
 
 public class Pracownik extends Osoba
 {
-    private Zgloszenie z = new Zgloszenie();
-    private Klient k = new Klient();
-    private int id_prac;
+    private Zgloszenie zgloszenie = new Zgloszenie();
+    private Klient klient = new Klient();
     private String nr_tel;
+    private int id_prac;
 
-    Pracownik() throws SQLException {};
+    public Pracownik() throws SQLException {};
 
-    Pracownik(String imie, String nazwisko, String nr_tel) throws SQLException {
+    public Pracownik(String imie, String nazwisko, String nr_tel) throws SQLException
+    {
         super(imie, nazwisko);
         this.nr_tel = nr_tel;
     }
 
-    void sprawdz_tozsamosc() throws SQLException { k.pokaz_dane(); }
+    public String sprawdz_tozsamosc() throws SQLException { return klient.pokaz_dane(); }
 
-    void odrzuc_zgloszenie() throws SQLException
+    public void odrzuc_zgloszenie() throws SQLException
     {
         Scanner odczyt = new Scanner(System.in);
         System.out.println("Usuwanie zgloszenia\n Podaj id zgloszenia :");
@@ -30,7 +33,7 @@ public class Pracownik extends Osoba
         prepStmt.setInt(1, id_wpr);
         prepStmt.executeUpdate();
     }
-    void przyjmij_zgloszenie()
+    public void przyjmij_zgloszenie()
     {
         // operacja na bazie danych
     };

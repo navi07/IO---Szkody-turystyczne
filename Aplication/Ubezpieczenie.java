@@ -1,10 +1,12 @@
+package Aplication;
+
 public class Ubezpieczenie
 {
     private   String typ;
   
-    Ubezpieczenie() {}
+    public Ubezpieczenie() {}
     
-    Ubezpieczenie(String typ)
+    public Ubezpieczenie(String typ)
     {
         this.typ = typ;
     }

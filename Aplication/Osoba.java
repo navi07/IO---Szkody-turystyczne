@@ -1,3 +1,5 @@
+package Aplication;
+
 public class Osoba extends DBConnect
 {
     protected String imie = "Imie";
@@ -9,9 +11,9 @@ public class Osoba extends DBConnect
         this.nazwisko = nazwisko;
     }
 
-    Osoba(){}
+    public Osoba(){}
 
-    Osoba(String imie, String nazwisko)
+    public Osoba(String imie, String nazwisko)
     {
         this.imie = imie;
         this.nazwisko = nazwisko;

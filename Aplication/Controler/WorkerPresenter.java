@@ -1,23 +1,25 @@
+package Aplication.Controler;
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 
-public class WorkerPresenter {
+public class WorkerPresenter
+{
     private Stage primaryStage;
 
     public WorkerPresenter(Stage primaryStage) {
         this.primaryStage = primaryStage;
     }
 
-    public void show() {
+    public void show()
+    {
         try {
             // load layout from FXML file
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(this.getClass().getClassLoader().getResource("WorkerGui.fxml"));
+            loader.setLocation(this.getClass().getClassLoader().getResource("Aplication/Resources/WorkerGui.fxml"));
             Parent rootLayout = loader.load();
 
             // add layout to a scene and show them all
@@ -26,7 +28,8 @@ public class WorkerPresenter {
             primaryStage.setMaximized(true);
             primaryStage.show();
 
-        } catch (IOException e) {
+        } catch (IOException e)
+        {
             // don't do this in common apps
             e.printStackTrace();
         }

@@ -1,22 +1,24 @@
+package Aplication;
+
+import Aplication.Controler.View;
 import javafx.application.Application;
 import javafx.stage.Stage;
-
 import java.sql.SQLException;
-import java.util.Scanner;
 
 public class Main extends Application
 {
-    public static void main(String[] args) throws SQLException {
+    public static void main(String[] args) throws SQLException
+    {
         /*
         Scanner odczyt = new Scanner(System.in);
         int x;
 
-        Polisa p1 = new Polisa(true,"ubezpieczniowa",2016,05,04,2017,05,04);
-        Osoba o1 = new Osoba("Tester","Testowy");
-        Klient k1 = new Klient("Klient", "Testowy", "98040705678", 1, 000000000);
-        Pracownik prac1 = new Pracownik();
-        Zgloszenie z1 = new Zgloszenie();
-        Ubezpieczenie u1 = new Ubezpieczenie();
+        Aplication.Polisa p1 = new Aplication.Polisa(true,"ubezpieczniowa",2016,05,04,2017,05,04);
+        Aplication.Osoba o1 = new Aplication.Osoba("Tester","Testowy");
+        Aplication.Klient k1 = new Aplication.Klient("Aplication.Klient", "Testowy", "98040705678", 1, 000000000);
+        Aplication.Pracownik prac1 = new Aplication.Pracownik();
+        Aplication.Zgloszenie z1 = new Aplication.Zgloszenie();
+        Aplication.Ubezpieczenie u1 = new Aplication.Ubezpieczenie();
 
        do
        {
@@ -28,12 +30,12 @@ public class Main extends Application
            System.out.println("5. Wyświetl dane osoby");
            System.out.println("6. Zgloś szkodę jako klient");
            System.out.println("7. Odrzuć zgłoszenie");
-           System.out.println("8. Wykonaj test klasy Osoba");
-           System.out.println("9. Wykonaj test klasy Klient");
-           System.out.println("10. Wykonaj test klasy Polisa");
-           System.out.println("11. Wykonaj test klasy Pracownik");
-           System.out.println("12. Wykonaj test klasy Zgloszenie");
-           System.out.println("13. Wykonaj test klasy Ubezpieczenie");
+           System.out.println("8. Wykonaj test klasy Aplication.Osoba");
+           System.out.println("9. Wykonaj test klasy Aplication.Klient");
+           System.out.println("10. Wykonaj test klasy Aplication.Polisa");
+           System.out.println("11. Wykonaj test klasy Aplication.Pracownik");
+           System.out.println("12. Wykonaj test klasy Aplication.Zgloszenie");
+           System.out.println("13. Wykonaj test klasy Aplication.Ubezpieczenie");
            System.out.println("Wybierz czynność : ");
            x = odczyt.nextInt();
            switch (x)
@@ -102,10 +104,10 @@ public class Main extends Application
     }
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
-        primaryStage.setTitle("Gowno");
-        View view=new View(primaryStage);
+    public void start(Stage primaryStage) throws Exception
+    {
+        primaryStage.setTitle("Zgłaszanie szkód turystycznych");
+        View view = new View(primaryStage);
         view.init();
     }
 }
-

@@ -1,6 +1,7 @@
+package Aplication;
+
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
-import java.util.Date;
 
 public class Polisa
 {
@@ -10,9 +11,9 @@ public class Polisa
     protected LocalDate data_rozwiazania= LocalDate.of(2015, 01, 15);
     protected int id;
 
-    Polisa() { }
+    public Polisa() {}
 
-    Polisa(boolean status, String rodzaj, int r_z, int m_z, int d_z, int r_r, int m_r, int d_r)
+    public Polisa(boolean status, String rodzaj, int r_z, int m_z, int d_z, int r_r, int m_r, int d_r)
     {
         this.status = status;
         this.rodzaj = rodzaj;
@@ -31,9 +32,9 @@ public class Polisa
     void sprawdz()
     {
         if(status)
-            System.out.println("Polisa jest aktualna");
+            System.out.println("Aplication.Polisa jest aktualna");
         else
-            System.out.println("Polisa nie jest aktualna");
+            System.out.println("Aplication.Polisa nie jest aktualna");
     }
 
     void czas_trwania()
