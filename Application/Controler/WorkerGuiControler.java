@@ -1,6 +1,6 @@
-package Aplication.Controler;
+package Application.Controler;
 
-import Aplication.Pracownik;
+import Application.Pracownik;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import java.sql.SQLException;

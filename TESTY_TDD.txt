@@ -1,0 +1,116 @@
+import java.sql.SQLException;
+// test klasy Osoba
+public class Main
+{
+    public static void main(String[] args) throws SQLException {
+        Osoba osoba1 = new Osoba("Test","Test");
+        osoba1.wyswietl();
+
+        if(osoba1 != null)
+            System.out.println("Obiekt istnieje. Test wykonany pomyslnie ");
+        else
+            System.out.println("Obiekt nie istnieje. Test wykonany negatywnie ");
+    }
+}  
+******************************************************************************************************************************
+
+import java.sql.SQLException;
+// test klasy Klient
+public class Main
+{
+    public static void main(String[] args) throws SQLException {
+        Klient klient1 = new Klient("Test","Test","98040705678", 1, 000000000);
+       
+	    // klient1.wyswietl();
+        // klient1.pokaz_dane();
+        klient1.zglos_szkode();
+		
+        if(klient1 != null)
+            System.out.println("Obiekt istnieje. Test wykonany pomyslnie ");
+        else
+            System.out.println("Obiekt nie istnieje. Test wykonany negatywnie ");
+    }
+}
+
+******************************************************************************************************************************
+
+import java.sql.SQLException;
+// test klasy Polisa
+public class Main
+{
+    public static void main(String[] args) throws SQLException {
+        Polisa polisa1 = new Polisa(true,"ubezpieczniowa",2016,05,04,2017,05,04);
+         po1isa1.czas_trwania();
+       
+        if(polisa1 != null)
+            System.out.println("Obiekt istnieje. Test wykonany pomyslnie ");
+        else
+            System.out.println("Obiekt nie istnieje. Test wykonany negatywnie ");
+    }
+}
+
+******************************************************************************************************************************
+
+import java.sql.SQLException;
+// test klasy Pracownik
+public class Main
+{
+    public static void main(String[] args) throws SQLException {
+        Pracownik pracownik1 = new Pracownik(1,123456798);
+         pracownik1.odrzuc_zgloszenie();
+       
+        if(pracownik1 != null)
+            System.out.println("Obiekt istnieje. Test wykonany pomyslnie ");
+        else
+            System.out.println("Obiekt nie istnieje. Test wykonany negatywnie ");
+    }
+}
+
+******************************************************************************************************************************
+
+import java.sql.SQLException;
+// test klasy Zgloszenie
+public class Main
+{
+    public static void main(String[] args) throws SQLException {
+        Zgloszenie zgloszenie1 = new Zgloszenie("Test",true,2016,05,04,500,1,2,3);
+        zgloszenie1.sprawdz_status();
+       
+        if(zgloszenie1 != null)
+            System.out.println("Obiekt istnieje. Test wykonany pomyslnie ");
+        else
+            System.out.println("Obiekt nie istnieje. Test wykonany negatywnie ");
+    }
+}
+
+******************************************************************************************************************************
+
+import java.sql.SQLException;
+// test klasy Ubezpieczenie
+public class Main
+{
+    public static void main(String[] args) throws SQLException {
+        Ubezpieczenie ubezpieczenie1 = new Ubezpieczenie("Test");
+        ubezpieczenie1.edytuj();
+       
+        if(ubezpieczenie1 != null)
+            System.out.println("Obiekt istnieje. Test wykonany pomyslnie ");
+        else
+            System.out.println("Obiekt nie istnieje. Test wykonany negatywnie ");
+    }
+}
+
+******************************************************************************************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+

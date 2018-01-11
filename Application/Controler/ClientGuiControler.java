@@ -1,4 +1,4 @@
-package Aplication.Controler;
+package Application.Controler;
 
 public class ClientGuiControler
 {

@@ -1,4 +1,4 @@
-package Aplication;
+package Application;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
@@ -32,9 +32,9 @@ public class Polisa
     void sprawdz()
     {
         if(status)
-            System.out.println("Aplication.Polisa jest aktualna");
+            System.out.println("Application.Polisa jest aktualna");
         else
-            System.out.println("Aplication.Polisa nie jest aktualna");
+            System.out.println("Application.Polisa nie jest aktualna");
     }
 
     void czas_trwania()

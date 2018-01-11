@@ -1,4 +1,4 @@
-package Aplication;
+package Application;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -86,9 +86,9 @@ public class Zgloszenie extends DBConnect
      void sprawdz_status()
     {
         if (status != false)
-            System.out.println("Aplication.Zgloszenie istnieje");
+            System.out.println("Application.Zgloszenie istnieje");
         else
-            System.out.println("Aplication.Zgloszenie nie istnieje");
+            System.out.println("Application.Zgloszenie nie istnieje");
     }
 }
 

@@ -1,6 +1,6 @@
-package Aplication;
+package Application;
 
-import Aplication.Controler.View;
+import Application.Controler.View;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import java.sql.SQLException;
@@ -13,12 +13,12 @@ public class Main extends Application
         Scanner odczyt = new Scanner(System.in);
         int x;
 
-        Aplication.Polisa p1 = new Aplication.Polisa(true,"ubezpieczniowa",2016,05,04,2017,05,04);
-        Aplication.Osoba o1 = new Aplication.Osoba("Tester","Testowy");
-        Aplication.Klient k1 = new Aplication.Klient("Aplication.Klient", "Testowy", "98040705678", 1, 000000000);
-        Aplication.Pracownik prac1 = new Aplication.Pracownik();
-        Aplication.Zgloszenie z1 = new Aplication.Zgloszenie();
-        Aplication.Ubezpieczenie u1 = new Aplication.Ubezpieczenie();
+        Application.Polisa p1 = new Application.Polisa(true,"ubezpieczniowa",2016,05,04,2017,05,04);
+        Application.Osoba o1 = new Application.Osoba("Tester","Testowy");
+        Application.Klient k1 = new Application.Klient("Application.Klient", "Testowy", "98040705678", 1, 000000000);
+        Application.Pracownik prac1 = new Application.Pracownik();
+        Application.Zgloszenie z1 = new Application.Zgloszenie();
+        Application.Ubezpieczenie u1 = new Application.Ubezpieczenie();
 
        do
        {
@@ -30,12 +30,12 @@ public class Main extends Application
            System.out.println("5. Wyświetl dane osoby");
            System.out.println("6. Zgloś szkodę jako klient");
            System.out.println("7. Odrzuć zgłoszenie");
-           System.out.println("8. Wykonaj test klasy Aplication.Osoba");
-           System.out.println("9. Wykonaj test klasy Aplication.Klient");
-           System.out.println("10. Wykonaj test klasy Aplication.Polisa");
-           System.out.println("11. Wykonaj test klasy Aplication.Pracownik");
-           System.out.println("12. Wykonaj test klasy Aplication.Zgloszenie");
-           System.out.println("13. Wykonaj test klasy Aplication.Ubezpieczenie");
+           System.out.println("8. Wykonaj test klasy Application.Osoba");
+           System.out.println("9. Wykonaj test klasy Application.Klient");
+           System.out.println("10. Wykonaj test klasy Application.Polisa");
+           System.out.println("11. Wykonaj test klasy Application.Pracownik");
+           System.out.println("12. Wykonaj test klasy Application.Zgloszenie");
+           System.out.println("13. Wykonaj test klasy Application.Ubezpieczenie");
            System.out.println("Wybierz czynność : ");
            x = odczyt.nextInt();
            switch (x)

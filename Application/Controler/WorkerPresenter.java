@@ -1,4 +1,4 @@
-package Aplication.Controler;
+package Application.Controler;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -19,7 +19,7 @@ public class WorkerPresenter
         try {
             // load layout from FXML file
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(this.getClass().getClassLoader().getResource("Aplication/Resources/WorkerGui.fxml"));
+            loader.setLocation(this.getClass().getClassLoader().getResource("Application/Resources/WorkerGui.fxml"));
             Parent rootLayout = loader.load();
 
             // add layout to a scene and show them all

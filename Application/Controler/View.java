@@ -1,4 +1,4 @@
-package Aplication.Controler;
+package Application.Controler;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -20,7 +20,7 @@ public class View
         try {
             // load layout from FXML file
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(this.getClass().getClassLoader().getResource("Aplication/Resources/Gui.fxml"));
+            loader.setLocation(this.getClass().getClassLoader().getResource("Application/Resources/Gui.fxml"));
             AnchorPane rootLayout = (AnchorPane)loader.load();
 
             GuiControler guiControler = loader.getController();
