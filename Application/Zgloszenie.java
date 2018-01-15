@@ -1,6 +1,7 @@
 package Application;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.Scanner;
@@ -89,6 +90,38 @@ public class Zgloszenie extends DBConnect
             System.out.println("Application.Zgloszenie istnieje");
         else
             System.out.println("Application.Zgloszenie nie istnieje");
+    }
+
+    public String pokaz_zgloszenia_wszystkie() throws SQLException
+    {
+        DBConnect connect = new DBConnect();
+        ResultSet rs = connect.getData("select * from zgloszenie_szkody_turystycznej");
+        return pokaz(rs);
+    }
+
+    public String pokaz_zgloszenia_niezatwierdzone() throws SQLException
+    {
+        DBConnect connect = new DBConnect();
+        ResultSet rs = connect.getData("SELECT* FROM zgloszenie_szkody_turystycznej WHERE status = 0");
+        return pokaz(rs);
+    }
+
+
+    private String pokaz(ResultSet rs) throws SQLException
+    {
+        String tmp = new String();
+        while(rs.next())
+        {
+            id = rs.getInt("id");
+            data = rs.getDate("data").toLocalDate();
+            opis = rs.getString("opis");
+            status = rs.getBoolean("status");
+            oplata = rs.getInt("oplata_polisy");
+            id_polisy = rs.getInt("Polisa_turystyczna_id");
+            tmp = new String("ID : "+ id + ", Data : " + data + ", Opis : " + opis + ", Status : " + status + ", Oplata :"
+                    + oplata + ", ID polisy : " + id_polisy + "\n" + tmp );
+        }
+        return tmp;
     }
 }
 

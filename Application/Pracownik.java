@@ -1,6 +1,7 @@
 package Application;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
 
@@ -27,14 +28,15 @@ public class Pracownik extends Osoba
         prepStmt.setInt(1, id);
         prepStmt.executeUpdate();
     }
-    public void przyjmij_zgloszenie(boolean status, int id) throws SQLException {
+    public void przyjmij_zgloszenie(int id) throws SQLException {
 
         PreparedStatement prepStmt = con.prepareStatement(
                 "update zgloszenie_szkody_turystycznej SET status = ? WHERE id = ?");
 
-        prepStmt.setInt(1,(status) ? 1 : 0);
+        prepStmt.setInt(1,1);
         prepStmt.setInt(2, id);
         prepStmt.executeUpdate();
     }
+
 
 }
