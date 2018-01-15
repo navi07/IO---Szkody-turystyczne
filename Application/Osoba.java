@@ -15,6 +15,7 @@ public class Osoba extends DBConnect
 
     public Osoba(String imie, String nazwisko)
     {
+
         this.imie = imie;
         this.nazwisko = nazwisko;
     }

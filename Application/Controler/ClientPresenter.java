@@ -1,31 +1,26 @@
 package Application.Controler;
 
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 
-public class View
+public class ClientPresenter
 {
     private Stage primaryStage;
 
-    public View(Stage primaryStage) {
+    public ClientPresenter(Stage primaryStage) {
         this.primaryStage = primaryStage;
     }
 
-    public void init()
+    public void show()
     {
         try {
             // load layout from FXML file
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(this.getClass().getClassLoader().getResource("Application/Resources/Gui.fxml"));
-            AnchorPane rootLayout = (AnchorPane)loader.load();
-
-            GuiControler guiControler = loader.getController();
-            guiControler.setWorkerPresenter(new WorkerPresenter(primaryStage));
-            guiControler.setClientPresenter(new ClientPresenter(primaryStage));
+            loader.setLocation(this.getClass().getClassLoader().getResource("Application/Resources/ClientGui.fxml"));
+            Parent rootLayout = loader.load();
 
             // add layout to a scene and show them all
             Scene scene = new Scene(rootLayout);
@@ -39,7 +34,4 @@ public class View
             e.printStackTrace();
         }
     }
-
-
-
 }

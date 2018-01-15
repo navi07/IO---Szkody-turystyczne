@@ -17,9 +17,14 @@ public class WorkerGuiControler
     @FXML
     public void handleSprawdzTozsamoscKlienta() throws SQLException
     {
-        int id = Integer.parseInt(textFieldInstertID.getText());
-        String tozsamosc = pracownik.sprawdz_tozsamosc(id);
-        textFieldId.setText(tozsamosc);
+        if (textFieldInstertID.getText().equals(""))
+            textFieldId.setText("Wprowadź ID !");
+        else
+        {
+            int id = Integer.parseInt(textFieldInstertID.getText());
+            String tozsamosc = pracownik.sprawdz_tozsamosc(id);
+            textFieldId.setText(tozsamosc);
+        }
     }
     @FXML
     public void handleOdrzucZgloszenie() throws SQLException
