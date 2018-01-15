@@ -41,7 +41,7 @@ public class Klient extends Osoba
     String pokaz_dane(int id) throws SQLException
     {
         String tmp = new String();
-        DBConnect connect =new DBConnect();
+        DBConnect connect = new DBConnect();
         ResultSet rs = connect.getData("select * from klienci");
 
         while(rs.next()){

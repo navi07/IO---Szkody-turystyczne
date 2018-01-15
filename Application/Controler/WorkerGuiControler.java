@@ -12,6 +12,7 @@ public class WorkerGuiControler
     @FXML
     public TextField textFieldId;
     public TextField textFieldInstertID;
+    public TextField textFieldStatusId;
     public WorkerGuiControler() throws SQLException { }
 
     @FXML
@@ -32,5 +33,13 @@ public class WorkerGuiControler
         int id = Integer.parseInt(textFieldInstertID.getText());
         pracownik.odrzuc_zgloszenie(id);
         textFieldId.setText("Usunięto zgłoszenie o ID : "+id);
+    }
+
+    @FXML
+    public void handlePrzyjmijZgloszenie() throws SQLException
+    {
+        int id = Integer.parseInt(textFieldInstertID.getText());
+        int status = Integer.parseInt(textFieldStatusId.getText());
+        pracownik.przyjmij_zgloszenie(status,id);
     }
 }
