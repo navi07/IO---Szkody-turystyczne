@@ -39,7 +39,7 @@ public class WorkerGuiControler
     public void handlePrzyjmijZgloszenie() throws SQLException
     {
         int id = Integer.parseInt(textFieldInstertID.getText());
-        int status = Integer.parseInt(textFieldStatusId.getText());
+        boolean status = Boolean.parseBoolean(textFieldStatusId.getText());
         pracownik.przyjmij_zgloszenie(status,id);
     }
 }
