@@ -1,5 +1,4 @@
-package Application;
-import java.sql.PreparedStatement;
+package Application.Model;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -34,22 +33,25 @@ public class Polisa
     void sprawdz_status()
     {
         if(status)
-            System.out.println("Application.Polisa jest aktualna");
+            System.out.println("Application.Model.Polisa jest aktualna");
         else
-            System.out.println("Application.Polisa nie jest aktualna");
+            System.out.println("Application.Model.Polisa nie jest aktualna");
     }
 
-    public Integer czas_trwania(Integer id_polisy) throws SQLException {
+    public String czas_trwania(int id_polisy) throws SQLException
+    {
         DBConnect connect = new DBConnect();
         ResultSet rs = connect.getData( "SELECT * FROM polisy_turystyczne");
-        while(rs.next()) {
-            if (rs.getInt("id") == id_polisy) {
-                data_zawarcia =rs.getDate("data_rozpoczecia").toLocalDate();
-                data_rozwiazania =rs.getDate("data_zakonczenia").toLocalDate();
-                break;
+        while(rs.next())
+        {
+            if (rs.getInt("id") == id_polisy)
+            {
+                data_zawarcia = rs.getDate("data_rozpoczecia").toLocalDate();
+                data_rozwiazania = rs.getDate("data_zakonczenia").toLocalDate();
             }
         }
-        int days = (int) ChronoUnit.DAYS.between(data_zawarcia, data_rozwiazania);
-        return days;
+        int dni = (int) ChronoUnit.DAYS.between(data_zawarcia, data_rozwiazania);
+        String czas=  "Do konca polisy pozostało  "+dni+" dni";
+        return czas;
     }
 }

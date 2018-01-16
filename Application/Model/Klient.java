@@ -1,9 +1,7 @@
-package Application;
+package Application.Model;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
-import Application.Controler.WorkerGuiControler;
 
 public class Klient extends Osoba
 {
@@ -17,7 +15,7 @@ public class Klient extends Osoba
     private int nr_tel;
 
     private Zgloszenie zgloszenie = new Zgloszenie();
-    private Polisa polisa;
+    private Polisa polisa = new Polisa();
 
     private static int count;
     int id;
@@ -64,12 +62,6 @@ public class Klient extends Osoba
 
     public void zglos_szkode() throws SQLException { zgloszenie.utworz(); }
     void edytuj_zgloszenie() throws SQLException { zgloszenie.edytuj();}
-    void sprawdz_status_zgloszenia() throws SQLException {
-        zgloszenie.sprawdz_status(id);
-    }
-    public String sprawdz_czas_trwania_polisy(int id) throws SQLException {
-       int czas=polisa.czas_trwania(id);
-      String ret= "Do konca polisy pozostało  "+czas+" dni.";
-       return ret;
-    }
+    void sprawdz_status_zgloszenia() throws SQLException { zgloszenie.sprawdz_status(id); }
+    public String sprawdz_czas_trwania_polisy(int id) throws SQLException { return polisa.czas_trwania(id); }
 }
