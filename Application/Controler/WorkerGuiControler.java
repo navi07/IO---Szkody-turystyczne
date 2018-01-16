@@ -1,12 +1,11 @@
 package Application.Controler;
 
-import Application.Pracownik;
-import Application.Zgloszenie;
+import Application.Model.Pracownik;
+import Application.Model.Zgloszenie;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.Pane;
 
 import java.sql.SQLException;
 
