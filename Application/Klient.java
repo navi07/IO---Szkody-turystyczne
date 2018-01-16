@@ -22,7 +22,7 @@ public class Klient extends Osoba
     private static int count;
     int id;
 
-    Klient()throws SQLException
+   public Klient()throws SQLException
     {
         count++;
         id = count;
@@ -64,12 +64,12 @@ public class Klient extends Osoba
 
     public void zglos_szkode() throws SQLException { zgloszenie.utworz(); }
     void edytuj_zgloszenie() throws SQLException { zgloszenie.edytuj();}
-    void sprawdz_status_zgloszenia()
-    {
-        zgloszenie.sprawdz_status();
+    void sprawdz_status_zgloszenia() throws SQLException {
+        zgloszenie.sprawdz_status(id);
     }
-    void sprawdz_czas_trwania_polisy()
-    {
-        polisa.czas_trwania();
+    public String sprawdz_czas_trwania_polisy(int id) throws SQLException {
+       int czas=polisa.czas_trwania(id);
+      String ret= "Do konca polisy pozostało  "+czas+" dni.";
+       return ret;
     }
 }
