@@ -84,12 +84,24 @@ public class Zgloszenie extends DBConnect
         prepStmt.executeUpdate();
     }
     
-     void sprawdz_status()
-    {
-        if (status != false)
-            System.out.println("Application.Zgloszenie istnieje");
-        else
-            System.out.println("Application.Zgloszenie nie istnieje");
+    public String sprawdz_status(Integer id) throws SQLException {
+        DBConnect connect = new DBConnect();
+        ResultSet rs = connect.getData("select id,status from zgloszenie_szkody_turystycznej");
+
+        int status=0;
+        while(rs.next()) {
+            if (rs.getInt("id")==id) {
+                status = rs.getInt("status");
+                break;
+            }
+        }
+        String ret;
+        if (status != 0) {
+            ret="Zgłoszenie zostało przyjęte";
+        } else
+            ret="Zgłoszenie zostało odrzucone";
+
+        return ret;
     }
 
     public String pokaz_zgloszenia_wszystkie() throws SQLException
