@@ -1,9 +1,7 @@
-package Application;
+package Application.Model;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
-import Application.Controler.WorkerGuiControler;
 
 public class Klient extends Osoba
 {
@@ -17,12 +15,12 @@ public class Klient extends Osoba
     private int nr_tel;
 
     private Zgloszenie zgloszenie = new Zgloszenie();
-    private Polisa polisa;
+    private Polisa polisa = new Polisa();
 
     private static int count;
     int id;
 
-    Klient()throws SQLException
+   public Klient()throws SQLException
     {
         count++;
         id = count;
@@ -62,14 +60,13 @@ public class Klient extends Osoba
         return tmp;
     }
 
-    public void zglos_szkode() throws SQLException { zgloszenie.utworz(); }
-    void edytuj_zgloszenie() throws SQLException { zgloszenie.edytuj();}
-    void sprawdz_status_zgloszenia()
-    {
-        zgloszenie.sprawdz_status();
-    }
-    void sprawdz_czas_trwania_polisy()
-    {
-        polisa.czas_trwania();
-    }
+    public void zglos_szkode(String opis,Double oplata,Integer id_polisy,Integer d_z,Integer m_z,Integer r_z) throws SQLException
+    { zgloszenie.utworz(opis,oplata,id_polisy,d_z,m_z, r_z); }
+
+    public void edytuj_zgloszenie(Integer id, String opis,Double oplata,Integer id_polisy,Integer d_z,Integer m_z,Integer r_z) throws SQLException
+    { zgloszenie.edytuj(id,opis,oplata,id_polisy,d_z,m_z, r_z); }
+
+    void sprawdz_status_zgloszenia() throws SQLException { zgloszenie.sprawdz_status(id); }
+
+    public String sprawdz_czas_trwania_polisy(int id) throws SQLException { return polisa.czas_trwania(id); }
 }

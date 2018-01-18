@@ -1,4 +1,4 @@
-package Application;
+package Application.Model;
 
 public class Osoba extends DBConnect
 {
