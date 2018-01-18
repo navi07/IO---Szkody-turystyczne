@@ -60,8 +60,13 @@ public class Klient extends Osoba
         return tmp;
     }
 
-    public void zglos_szkode() throws SQLException { zgloszenie.utworz(); }
-    void edytuj_zgloszenie() throws SQLException { zgloszenie.edytuj();}
+    public void zglos_szkode(String opis,Double oplata,Integer id_polisy,Integer d_z,Integer m_z,Integer r_z) throws SQLException
+    { zgloszenie.utworz(opis,oplata,id_polisy,d_z,m_z, r_z); }
+
+    public void edytuj_zgloszenie(Integer id, String opis,Double oplata,Integer id_polisy,Integer d_z,Integer m_z,Integer r_z) throws SQLException
+    { zgloszenie.edytuj(id,opis,oplata,id_polisy,d_z,m_z, r_z); }
+
     void sprawdz_status_zgloszenia() throws SQLException { zgloszenie.sprawdz_status(id); }
+
     public String sprawdz_czas_trwania_polisy(int id) throws SQLException { return polisa.czas_trwania(id); }
 }

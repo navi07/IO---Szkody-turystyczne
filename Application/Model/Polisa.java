@@ -8,8 +8,8 @@ public class Polisa
 {
     private boolean status;
     private String rodzaj;
-    protected LocalDate data_zawarcia = LocalDate.of(2015, 01, 10);
-    protected LocalDate data_rozwiazania= LocalDate.of(2015, 01, 15);
+    protected LocalDate data_zawarcia = LocalDate.now();
+    protected LocalDate data_rozwiazania = LocalDate.now();
     protected int id;
 
     public Polisa() {}
@@ -33,13 +33,15 @@ public class Polisa
     void sprawdz_status()
     {
         if(status)
-            System.out.println("Application.Model.Polisa jest aktualna");
+            System.out.println("Polisa jest aktualna");
         else
-            System.out.println("Application.Model.Polisa nie jest aktualna");
+            System.out.println("Polisa nie jest aktualna");
     }
 
     public String czas_trwania(int id_polisy) throws SQLException
     {
+        data_zawarcia = null;
+        data_rozwiazania = null;
         DBConnect connect = new DBConnect();
         ResultSet rs = connect.getData( "SELECT * FROM polisy_turystyczne");
         while(rs.next())
@@ -50,8 +52,13 @@ public class Polisa
                 data_rozwiazania = rs.getDate("data_zakonczenia").toLocalDate();
             }
         }
-        int dni = (int) ChronoUnit.DAYS.between(data_zawarcia, data_rozwiazania);
-        String czas=  "Do konca polisy pozostało  "+dni+" dni";
-        return czas;
+
+        if(data_rozwiazania != null && data_zawarcia != null)
+        {
+            int dni = (int) ChronoUnit.DAYS.between(data_zawarcia, data_rozwiazania);
+            String czas=  "Do konca polisy pozostało  "+dni+" dni";
+            return czas;
+        }
+        else return new String("Podana polisa nie istnieje !");
     }
 }
