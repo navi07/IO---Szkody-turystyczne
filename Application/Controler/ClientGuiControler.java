@@ -1,98 +1,115 @@
 package Application.Controler;
 
-import Application.Klient;
-import Application.Zgloszenie;
-import com.mysql.fabric.xmlrpc.Client;
-import javafx.beans.Observable;
+import Application.Model.Klient;
+import Application.Model.Zgloszenie;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.collections.ObservableList;
 
 import java.sql.SQLException;
+import java.util.Calendar;
 
-public class ClientGuiControler {
+public class ClientGuiControler 
+{
     Klient klient = new Klient();
     Zgloszenie zgloszenie = new Zgloszenie();
-    public TextField textFieldInstertID;
     public TextArea textAreaId;
-    public TextField textFieldD;
-    public TextField textFieldM;
-    public TextField textFieldR;
-    public TextField textFieldOpis;
     public TextField textFieldOplataPolisy;
-    public ChoiceBox ChoicekBoxID;
-    //http://www.java2s.com/Tutorials/Java/javafx.scene.control/ChoiceBox/0320__ChoiceBox.setValue_T_value_.htm
-    ObservableList<String>ChoicekBoxList= FXCollections.observableArrayList("szkody");
-    @FXML
-    public TextField textFieldSprawdzStatusZgloszeniaID;
-    public ClientGuiControler() throws SQLException {
-    }
+    public TextField textFieldInstertID;
+    public TextField textFieldInstertIDPolisy;
+    public ChoiceBox ChoiceBoxID;
+    public DatePicker DatePickerID;
+    ObservableList<String> RodzajeSzkod = FXCollections.observableArrayList("Szkoda w hotelu", "Opóźnienie", "Kradzież", "Zaginięcie bagażu", "Uszkodzenie bagażu", "Odwołanie podróży");
+
+    public ClientGuiControler() throws SQLException {}
 
     @FXML
+    public void initialize() { ChoiceBoxID.setItems(RodzajeSzkod); }
 
-    public void handleSprawdzStatusZgloszenia(ActionEvent actionEvent) throws SQLException {
-
+    @FXML
+    public void handleSprawdzStatusZgloszenia(ActionEvent actionEvent) throws SQLException
+    {
         if (textFieldInstertID.getText().equals(""))
-            textAreaId.setText("Wprowadź ID !");
-        else {
+        textAreaId.setText("Wprowadź ID !");
+        else
+        {
             int id = Integer.parseInt(textFieldInstertID.getText());
             String status = zgloszenie.sprawdz_status(id);
             textAreaId.setText(status);
         }
     }
 
-    public void handleSprawdzCzasPolisy(ActionEvent actionEvent) throws SQLException {
-        if (textFieldInstertID.getText().equals(""))
+    public void handleSprawdzCzasPolisy(ActionEvent actionEvent) throws SQLException
+    {
+        if (textFieldInstertIDPolisy.getText().equals(""))
             textAreaId.setText("Wprowadź ID !");
-        else {
-            int id = Integer.parseInt(textFieldInstertID.getText());
+        else
+        {
+            int id = Integer.parseInt(textFieldInstertIDPolisy.getText());
             String czas_trwania = klient.sprawdz_czas_trwania_polisy(id);
             textAreaId.setText(czas_trwania);
         }
     }
-    public void handleZglosSzkode(ActionEvent actionEvent) throws SQLException {
-        if (textFieldOpis.getText().equals("") &&
-                textFieldOplataPolisy.getText().equals("") &&
-                textFieldD.getText().equals("") &&
-                textFieldM.getText().equals("") &&
-                textFieldR.getText().equals(""))
-            textAreaId.setText("Wprowadź ID !");
-        else {
-            String opis = textFieldOpis.getText();
+    public void handleZglosSzkode(ActionEvent actionEvent) throws SQLException
+    {
+        if (ChoiceBoxID.getValue().equals("") ||
+                textFieldOplataPolisy.getText().equals("") ||
+                textFieldInstertIDPolisy.getText().equals("") ||
+                (DatePickerID.getValue().equals(null)))
+            textAreaId.setText("Wprowadź wszystkie dane !");
+        else
+        {
+            String opis = (String)ChoiceBoxID.getValue();
             Double oplata = Double.valueOf(textFieldOplataPolisy.getText());
-            int d = Integer.valueOf(textFieldD.getText());
-            int m = Integer.valueOf(textFieldM.getText());
-            int r = Integer.valueOf(textFieldR.getText());
-            int id_polisy = 1;
+            int d = (DatePickerID.getValue().getDayOfMonth());
+            int m = (DatePickerID.getValue().getMonthValue());
+            int r = (DatePickerID.getValue().getYear());
+            int id_polisy = Integer.valueOf(textFieldInstertIDPolisy.getText());
 
             klient.zglos_szkode(opis, oplata, id_polisy, d, m, r);
+            textAreaId.setText("Edytowano zgłoszenie : \n Opis : " + opis + "\n Oplata : " + oplata + " Zł \n Data : " + d + "." + m + "." + r + "\n ID polisy : " + id_polisy);
         }
     }
-        public void handleEdytujZglosznie(ActionEvent actionEvent) throws SQLException {
-            if (textFieldInstertID.getText().equals("") &&
-                    textFieldOpis.getText().equals("") &&
-                    textFieldOplataPolisy.getText().equals("") &&
-                    textFieldD.getText().equals("") &&
-                    textFieldM.getText().equals("") &&
-                    textFieldR.getText().equals(""))
+        public void handleEdytujZglosznie(ActionEvent actionEvent) throws SQLException
+        {
+            if (textFieldInstertID.getText().equals("") ||
+                    ChoiceBoxID.getValue().equals("") ||
+                    textFieldOplataPolisy.getText().equals("") ||
+                    textFieldInstertIDPolisy.getText().equals("") ||
+                    (DatePickerID.getValue().equals(null)))
                 textAreaId.setText("Wprowadź wszystkie dane !");
-            else {
-
+            else
+            {
                 int id = Integer.valueOf(textFieldInstertID.getText());
-                String opis = textFieldOpis.getText();
+                String opis = (String)ChoiceBoxID.getValue();
                 Double oplata = Double.valueOf(textFieldOplataPolisy.getText());
-                int d = Integer.valueOf(textFieldD.getText());
-                int m = Integer.valueOf(textFieldM.getText());
-                int r = Integer.valueOf(textFieldR.getText());
-                int id_polisy = 1;
+                int d = (DatePickerID.getValue().getDayOfMonth());
+                int m = (DatePickerID.getValue().getMonthValue());
+                int r = (DatePickerID.getValue().getYear());
+                int id_polisy = Integer.valueOf(textFieldInstertIDPolisy.getText());
 
                 klient.edytuj_zgloszenie(id, opis, oplata, id_polisy, d, m, r);
+                textAreaId.setText("Edytowano zgłoszenie : \n Opis : " + opis + "\n Oplata : " + oplata + " Zł \n Data : " + d + "." + m + "." + r + "\n ID polisy : " + id_polisy);
             }
         }
+
+        public void handlePokazMojeZgloszenia() throws SQLException
+        {
+            if (textFieldInstertID.getText().equals(""))
+                textAreaId.setText("Wprowadź swoje ID aby obejrzeć własne zgłoszenia !");
+            else
+            {
+                int id = Integer.parseInt(textFieldInstertID.getText());
+                String zgloszenia = zgloszenie.pokaz_zgloszenia_klienta(id);
+                textAreaId.setText(zgloszenia);
+            }
+        }
+
 }

@@ -29,7 +29,7 @@ public class Pracownik extends Osoba
     public void przyjmij_zgloszenie(int id) throws SQLException
     {
         PreparedStatement prepStmt = con.prepareStatement(
-                "update zgloszenie_szkody_turystycznej SET status = ? WHERE id = ?");
+                "UPDATE zgloszenie_szkody_turystycznej SET status = ? WHERE id = ?");
 
         prepStmt.setInt(1,1);
         prepStmt.setInt(2, id);

@@ -1,12 +1,11 @@
 package Application.Controler;
 
-import Application.Pracownik;
-import Application.Zgloszenie;
+import Application.Model.Pracownik;
+import Application.Model.Zgloszenie;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.Pane;
 
 import java.sql.SQLException;
 
@@ -15,10 +14,11 @@ public class WorkerGuiControler
     Pracownik pracownik = new Pracownik();
     Zgloszenie zgloszenie = new Zgloszenie();
 
+
     @FXML
     public TextField textFieldInstertID;
     public TextArea textAreaId;
-    public WorkerGuiControler() throws SQLException { }
+    public WorkerGuiControler() throws SQLException {}
 
     @FXML
     public void handleSprawdzTozsamoscKlienta() throws SQLException
@@ -35,9 +35,20 @@ public class WorkerGuiControler
     @FXML
     public void handleOdrzucZgloszenie() throws SQLException
     {
-        int id = Integer.parseInt(textFieldInstertID.getText());
-        pracownik.odrzuc_zgloszenie(id);
-        textAreaId.setText("Usunięto zgłoszenie o ID : "+id);
+        textAreaId.setText(zgloszenie.pokaz_zgloszenia_wszystkie() + "\n Wpisz ID zgloszenia aby je usunąć");
+        if (textFieldInstertID.getText().equals(""))
+        {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Błąd");
+            alert.setHeaderText("Wprowadź ID zgłoszenia aby je usunąć");
+            alert.show();
+        }
+        else
+        {
+            int id = Integer.parseInt(textFieldInstertID.getText());
+            pracownik.odrzuc_zgloszenie(id);
+            textAreaId.setText("Usunięto zgłoszenie o ID : " + id);
+        }
     }
 
     @FXML
@@ -48,7 +59,7 @@ public class WorkerGuiControler
         {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Błąd");
-            alert.setHeaderText("Wprowadź ID");
+            alert.setHeaderText("Wprowadź ID zgłoszenia aby je przyjąć");
             alert.show();
         }
         else
@@ -62,5 +73,19 @@ public class WorkerGuiControler
     public void handlePrzegladajZgloszenia() throws SQLException
     {
         textAreaId.setText(zgloszenie.pokaz_zgloszenia_wszystkie());
+    }
+
+    public void handlePokazZgloszeniaKlienta() throws SQLException
+    {
+
+        if (textFieldInstertID.getText().equals(""))
+            textAreaId.setText("Wprowadź ID klienta aby obejrzeć jego zgłoszenia !");
+        else
+        {
+            int id = Integer.parseInt(textFieldInstertID.getText());
+            String zgloszenia = zgloszenie.pokaz_zgloszenia_klienta(id);
+            textAreaId.setText(zgloszenia);
+        }
+
     }
 }
