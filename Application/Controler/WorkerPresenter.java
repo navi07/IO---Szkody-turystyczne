@@ -25,7 +25,7 @@ public class WorkerPresenter
             // add layout to a scene and show them all
             Scene scene = new Scene(rootLayout);
             primaryStage.setScene(scene);
-            primaryStage.setMaximized(true);
+            primaryStage.setMaximized(false);
             primaryStage.show();
 
         } catch (IOException e)

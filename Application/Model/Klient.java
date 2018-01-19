@@ -38,11 +38,13 @@ public class Klient extends Osoba
 
     String pokaz_dane(int id) throws SQLException
     {
+        boolean istnieje = false;
         String tmp = new String();
         DBConnect connect = new DBConnect();
         ResultSet rs = connect.getData("select * from klienci");
 
-        while(rs.next()){
+        while(rs.next())
+        {
             if(id == rs.getInt("ID"))
             {
                 int ID = rs.getInt("ID");
@@ -54,10 +56,12 @@ public class Klient extends Osoba
                 numer_telefonu = rs.getString("numer_telefonu");
                 pesel = rs.getString("pesel");
                 seria_dowodu = rs.getString("seria_dowodu");
-                tmp = new String(imie+" "+nazwisko+" "+pesel+" ID = "+ID+'\n'+tmp);
+                tmp = new String("Imie : "+imie+"\nNazwisko : "+nazwisko+"\nPesel : "+pesel+"\nID = "+ID+'\n'+tmp);
+                istnieje = true;
             }
         }
-        return tmp;
+        if (istnieje) return tmp;
+        else return new String("Podany klient nie istnieje !");
     }
 
     public void zglos_szkode(String opis,Double oplata,Integer id_polisy,Integer d_z,Integer m_z,Integer r_z) throws SQLException

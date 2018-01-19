@@ -69,9 +69,9 @@ public class Zgloszenie extends DBConnect
         }
         String ret;
         if (status != 0)
-            ret="Zgłoszenie zostało przyjęte";
+            ret = "Zgłoszenie zostało przyjęte";
         else
-            ret="Zgłoszenie zostało odrzucone";
+            ret = "Zgłoszenie zostało odrzucone";
         return ret;
     }
 
@@ -101,6 +101,7 @@ public class Zgloszenie extends DBConnect
 
     private String pokaz(ResultSet rs) throws SQLException
     {
+        boolean istnieje = false;
         String tmp = new String();
         while(rs.next())
         {
@@ -112,8 +113,10 @@ public class Zgloszenie extends DBConnect
             id_polisy = rs.getInt("Polisa_turystyczna_id");
             tmp = new String("ID : "+ id + ", Data : " + data + ", Opis : " + opis + ", Status : " + status + ", Oplata : "
                     + oplata + " Zł , ID polisy : " + id_polisy + "\n" + tmp );
+            istnieje = true;
         }
-        return tmp;
+        if (istnieje) return tmp;
+        else return new String("Zgloszenie nie istnieje !");
     }
 }
 

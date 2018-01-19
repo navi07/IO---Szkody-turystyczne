@@ -37,7 +37,7 @@ public class ClientGuiControler
     public void handleSprawdzStatusZgloszenia(ActionEvent actionEvent) throws SQLException
     {
         if (textFieldInstertID.getText().equals(""))
-        textAreaId.setText("Wprowadź ID !");
+        textAreaId.setText("Wprowadź ID zgłoszenia !");
         else
         {
             int id = Integer.parseInt(textFieldInstertID.getText());
@@ -49,7 +49,7 @@ public class ClientGuiControler
     public void handleSprawdzCzasPolisy(ActionEvent actionEvent) throws SQLException
     {
         if (textFieldInstertIDPolisy.getText().equals(""))
-            textAreaId.setText("Wprowadź ID !");
+            textAreaId.setText("Wprowadź ID polisy !");
         else
         {
             int id = Integer.parseInt(textFieldInstertIDPolisy.getText());
@@ -59,8 +59,8 @@ public class ClientGuiControler
     }
     public void handleZglosSzkode(ActionEvent actionEvent) throws SQLException
     {
-        if (ChoiceBoxID.getValue().equals("") ||
-                textFieldOplataPolisy.getText().equals("") ||
+        if (textFieldOplataPolisy.getText().equals("") ||
+                ChoiceBoxID.getSelectionModel().isEmpty() ||
                 textFieldInstertIDPolisy.getText().equals("") ||
                 (DatePickerID.getValue().equals(null)))
             textAreaId.setText("Wprowadź wszystkie dane !");
@@ -74,13 +74,13 @@ public class ClientGuiControler
             int id_polisy = Integer.valueOf(textFieldInstertIDPolisy.getText());
 
             klient.zglos_szkode(opis, oplata, id_polisy, d, m, r);
-            textAreaId.setText("Edytowano zgłoszenie : \n Opis : " + opis + "\n Oplata : " + oplata + " Zł \n Data : " + d + "." + m + "." + r + "\n ID polisy : " + id_polisy);
+            textAreaId.setText("Utworzono zgłoszenie : \nOpis : " + opis + "\nOplata : " + oplata + " Zł \nData : " + d + "." + m + "." + r + "\nID polisy : " + id_polisy);
         }
     }
         public void handleEdytujZglosznie(ActionEvent actionEvent) throws SQLException
         {
             if (textFieldInstertID.getText().equals("") ||
-                    ChoiceBoxID.getValue().equals("") ||
+                    ChoiceBoxID.getSelectionModel().isEmpty() ||
                     textFieldOplataPolisy.getText().equals("") ||
                     textFieldInstertIDPolisy.getText().equals("") ||
                     (DatePickerID.getValue().equals(null)))
@@ -96,7 +96,7 @@ public class ClientGuiControler
                 int id_polisy = Integer.valueOf(textFieldInstertIDPolisy.getText());
 
                 klient.edytuj_zgloszenie(id, opis, oplata, id_polisy, d, m, r);
-                textAreaId.setText("Edytowano zgłoszenie : \n Opis : " + opis + "\n Oplata : " + oplata + " Zł \n Data : " + d + "." + m + "." + r + "\n ID polisy : " + id_polisy);
+                textAreaId.setText("Edytowano zgłoszenie : \nOpis : " + opis + "\nOplata : " + oplata + " Zł \nData : " + d + "." + m + "." + r + "\nID polisy : " + id_polisy);
             }
         }
 
