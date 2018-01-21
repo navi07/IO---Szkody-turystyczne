@@ -27,9 +27,16 @@ public class WorkerGuiControler
             textAreaId.setText("Wprowadź ID !");
         else
         {
-            int id = Integer.parseInt(textFieldInstertID.getText());
-            String tozsamosc = pracownik.sprawdz_tozsamosc(id);
-            textAreaId.setText(tozsamosc);
+            try
+            {
+                int id = Integer.parseInt(textFieldInstertID.getText());
+                String tozsamosc = pracownik.sprawdz_tozsamosc(id);
+                textAreaId.setText(tozsamosc);
+            }
+            catch (NumberFormatException e)
+            {
+                textAreaId.setText("Wprowadzono nieprawidłową wartość !");
+            }
         }
     }
     @FXML
@@ -45,9 +52,16 @@ public class WorkerGuiControler
         }
         else
         {
-            int id = Integer.parseInt(textFieldInstertID.getText());
-            pracownik.odrzuc_zgloszenie(id);
-            textAreaId.setText("Usunięto zgłoszenie o ID : " + id);
+            try
+            {
+                int id = Integer.parseInt(textFieldInstertID.getText());
+                pracownik.odrzuc_zgloszenie(id);
+                textAreaId.setText("Usunięto zgłoszenie o ID : " + id);
+            }
+            catch (NumberFormatException e)
+            {
+                textAreaId.setText("Wprowadzono nieprawidłową wartość !");
+            }
         }
     }
 
@@ -64,8 +78,16 @@ public class WorkerGuiControler
         }
         else
         {
-            int id = Integer.parseInt(textFieldInstertID.getText());
-            pracownik.przyjmij_zgloszenie(id);
+            try
+            {
+                int id = Integer.parseInt(textFieldInstertID.getText());
+                pracownik.przyjmij_zgloszenie(id);
+                textAreaId.setText("Przyjęto zgłoszenie o ID : " + id);
+            }
+            catch (NumberFormatException e)
+            {
+                textAreaId.setText("Wprowadzono nieprawidłową wartość !");
+            }
         }
     }
 
@@ -77,15 +99,22 @@ public class WorkerGuiControler
 
     public void handlePokazZgloszeniaKlienta() throws SQLException
     {
-
         if (textFieldInstertID.getText().equals(""))
             textAreaId.setText("Wprowadź ID klienta aby obejrzeć jego zgłoszenia !");
         else
         {
-            int id = Integer.parseInt(textFieldInstertID.getText());
-            String zgloszenia = zgloszenie.pokaz_zgloszenia_klienta(id);
-            textAreaId.setText(zgloszenia);
+            try
+            {
+                int id = Integer.parseInt(textFieldInstertID.getText());
+                String zgloszenia = zgloszenie.pokaz_zgloszenia_klienta(id);
+                textAreaId.setText(zgloszenia);
+            }
+            catch (NumberFormatException e)
+            {
+                textAreaId.setText("Wprowadzono nieprawidłową wartość !");
+            }
         }
-
     }
+
+    public void handleWyjdzAction() { System.exit(0); }
 }
